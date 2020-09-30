@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html> 
+
+    <title>Radiobox</title>
+
+<body> 
+    <fieldset>
+        <center>
+    <p> 
+        Select the Gender of the student.
+    </p> 
+    
+    Gender: 
+    <input type="radio" name="gender" value="Male">Male 
+    <input type="radio" name="gender" value="Female">Female 
+    <input type="radio" name="gender" value="Others">Others 
+    <br> 
+    <button type="button" onclick="displayRadioValue()"> 
+        Submit 
+    </button> 
+      
+    <br> 
+      <br>
+    <div id="result"></div> 
+      
+    <script> 
+        function displayRadioValue() { 
+            var ele = document.getElementsByName('gender'); 
+              
+            for(i = 0; i < ele.length; i++) { 
+                if(ele[i].checked) 
+                        alert("Gender of the student is "+ele[i].value) 
+            } 
+        } 
+    </script> 
+</fieldset>
+</body> 
+</html> 

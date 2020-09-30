@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form action="#" method="post" class="demoForm" id="demoForm">
+    <fieldset>
+    <p>Size: Medium $8.00</p>
+    <div id="toppings">Select Toppings: 
+        <label><input type="checkbox" name="mushrooms" value="1" /> mushrooms</label>
+        <label><input type="checkbox" name="onions" value="2" /> onions</label>
+        <label><input type="checkbox" name="black_olives" value="3" /> black olives</label>
+        <label><input type="checkbox" name="sausage" value="4" /> sausage</label>
+        <label><input type="checkbox" name="pepperoni" value="5" /> pepperoni</label>
+    </div>
+    
+    <p>
+        <label>Total: $ <input type="text" name="total" class="num" size="6" value="0" readonly="readonly" /></label>
+    </p>
+    </fieldset>
+    
+</form>
+<script>
+function attachCheckboxHandlers()
+ {
+    var el = document.getElementById('toppings');
+    var tops = el.getElementsByTagName('input');
+    for (var i=0, len=tops.length; i<len; i++) {
+        if ( tops[i].type === 'checkbox' ) {
+            tops[i].onclick = updateTotal;
+        }
+    }
+}
+
+function updateTotal(e) 
+{
+    var val = parseInt(this.form.elements['total'].value);
+    if ( this.checked )
+    {
+        val += parseInt(this.value);
+    } 
+    else 
+    {
+        val -= parseInt(this.value);
+    }
+    
+    this.form.elements['total'].value =val
+}
+
+attachCheckboxHandlers();
+</script>
+</body>
+</html>
